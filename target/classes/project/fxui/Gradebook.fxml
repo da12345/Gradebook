@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="487.0" prefWidth="750.0" style="-fx-background-color: lightskyblue;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.fxui.Controller">
+   <children>
+      <GridPane layoutX="41.0" layoutY="20.0" prefHeight="450.0" prefWidth="667.0" style="-fx-background-color: lightskyblue;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Pane layoutX="-35.0" prefHeight="250.0" prefWidth="215.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="28.0" text="Course Name:" />
+                        <Label layoutX="10.0" layoutY="59.0" text="Letter Grade (A-F):" />
+                        <Label layoutX="10.0" layoutY="92.0" text="Number Grade (0-100):" />
+                        <Text fx:id="errormessage" fill="RED" layoutX="-22.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="312.0" x="25.0" y="50.0" />
+                        <Button fx:id="add" layoutX="127.0" layoutY="124.0" mnemonicParsing="false" onAction="#handleAddButtonAction" text="Add" />
+                        <Text fx:id="errormessage2" fill="RED" layoutX="520.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="168.0" y="-100.0" />
+                        <Pane fx:id="inputfields" prefHeight="119.0" prefWidth="200.0">
+                           <children>
+                              <TextField fx:id="coursefield" layoutX="150.0" layoutY="24.0" prefHeight="27.0" prefWidth="79.0" />
+                              <TextField fx:id="lettergradefield" layoutX="150.0" layoutY="56.0" prefHeight="27.0" prefWidth="79.0" />
+                              <TextField fx:id="numbergradefield" layoutX="150.0" layoutY="88.0" prefHeight="27.0" prefWidth="79.0" />
+                           </children>
+                        </Pane>
+                        <HBox layoutX="10.0" layoutY="330.0" prefHeight="70.0" prefWidth="230.0">
+                           <children>
+                              <RadioButton fx:id="letterradio" mnemonicParsing="false" onAction="#handleMode" prefHeight="18.0" prefWidth="107.0" text="Letter Grade">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="grade" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="numberradio" mnemonicParsing="false" onAction="#handleMode" text="Number Grade" toggleGroup="$grade" />
+                           </children>
+                        </HBox>
+                        <Label layoutX="30.0" layoutY="300.0" text="Create statistics based on:" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <ListView fx:id="courselistview" layoutX="14.0" layoutY="59.0" prefHeight="253.0" prefWidth="83.0" />
+                  <ListView fx:id="numberlistview" layoutX="184.0" layoutY="59.0" prefHeight="253.0" prefWidth="83.0" />
+                  <ListView fx:id="letterlistview" layoutX="99.0" layoutY="59.0" prefHeight="253.0" prefWidth="83.0" />
+                  <Text layoutX="202.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number Grade:">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="121.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Letter Grade:">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="43.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course:">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Text>
+                  <Pane fx:id="buttoncontainer" layoutX="277.0" layoutY="61.0" prefHeight="250.0" prefWidth="35.0">
+                     <children>
+                        <Button fx:id="clear1" mnemonicParsing="false" onAction="#handleClearOne" text="Delete" visible="false">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="clear2" layoutY="25.0" mnemonicParsing="false" onAction="#handleClearOne" text="Delete" visible="false">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="clear3" layoutY="50.0" mnemonicParsing="false" onAction="#handleClearOne" text="Delete" visible="false">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="clear4" layoutY="75.0" mnemonicParsing="false" onAction="#handleClearOne" text="Delete" visible="false">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="clear5" layoutY="100.0" mnemonicParsing="false" onAction="#handleClearOne" text="Delete" visible="false">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="clear6" layoutY="125.0" mnemonicParsing="false" onAction="#handleClearOne" text="Delete" visible="false">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="clear7" layoutY="150.0" mnemonicParsing="false" onAction="#handleClearOne" text="Delete" visible="false">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="clear8" layoutY="175.0" mnemonicParsing="false" onAction="#handleClearOne" text="Delete" visible="false">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="clear9" layoutY="200.0" mnemonicParsing="false" onAction="#handleClearOne" text="Delete" visible="false">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="clear10" layoutY="225.0" mnemonicParsing="false" onAction="#handleClearOne" text="Delete" visible="false">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="results" layoutX="280.0" layoutY="40.0" prefHeight="300.0" prefWidth="203.0" visible="false">
+                     <children>
+                        <Label fx:id="worstlabel" layoutX="120.0" layoutY="150.0" text="Label" />
+                        <Label fx:id="bestlabel" layoutX="120.0" layoutY="130.0" text="Label" />
+                        <Label fx:id="averagelabel" layoutX="120.0" layoutY="170.0" text="Label" />
+                     </children>
+                  </Pane>
+                  <Button fx:id="save" layoutX="390.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleSaveAction" text="Save as new user" />
+                  <TextField fx:id="filelocationfield" layoutX="390.0" layoutY="291.0" onKeyTyped="#handleSetName" prefHeight="27.0" prefWidth="120.0" />
+                  <Label fx:id="title" layoutX="30.0" layoutY="5.0" prefHeight="30.0" prefWidth="265.0" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Text layoutX="320.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your name:" />
+                  <Button layoutX="390.0" layoutY="327.0" mnemonicParsing="false" onAction="#handleLoadAction" prefHeight="27.0" prefWidth="112.0" text="Load grades" />
+                  <Text fx:id="success" fill="#008a22" layoutX="369.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                  <Button fx:id="coursesort" layoutX="21.0" layoutY="46.0" mnemonicParsing="false" onAction="#handleCourseSort" prefHeight="10.0" prefWidth="12.0" text="↓">
+                     <font>
+                        <Font size="5.0" />
+                     </font></Button>
+                  <Button fx:id="lettersort" layoutX="106.0" layoutY="46.0" mnemonicParsing="false" onAction="#handleLetterSort" prefHeight="10.0" prefWidth="12.0" text="↓">
+                     <font>
+                        <Font size="5.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="numbersort" layoutX="189.0" layoutY="47.0" mnemonicParsing="false" onAction="#handleNumberSort" prefHeight="10.0" prefWidth="12.0" text="↓">
+                     <font>
+                        <Font size="5.0" />
+                     </font>
+                  </Button>
+                  <Pane fx:id="resultslabels" layoutX="310.0" layoutY="60.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+                     <children>
+                        <Label fx:id="statslabel" layoutX="40.0" layoutY="50.0" text="Your grade statistics:" />
+                        <Label fx:id="best" layoutY="110.0" text="Best Grade:" />
+                        <Label fx:id="worst" layoutY="130.0" text="Worst Grade:" />
+                        <Label fx:id="average" layoutY="150.0" text="Average Grade:" />
+                     </children>
+                  </Pane>
+                  <Button fx:id="calculate" layoutX="60.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleCalculate" prefHeight="27.0" prefWidth="160.0" text="Calculate" />
+                  <Button fx:id="clearall" layoutX="110.0" layoutY="400.0" mnemonicParsing="false" onAction="#handleClearAll" text="Clear All" />
+               </children>
+            </Pane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
